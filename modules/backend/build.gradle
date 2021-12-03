@@ -1,0 +1,22 @@
+plugins {
+    id "java"
+    id "org.springframework.boot"
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-security:2.5.6'
+    implementation 'org.springframework.boot:spring-boot-starter-data-rest:2.5.6'
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.5.6'
+
+
+    runtimeOnly 'mysql:mysql-connector-java:8.0.25'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.6'
+    testImplementation 'org.springframework.security:spring-security-test:5.5.1'
+    testImplementation 'com.h2database:h2:2.0.202'
+}
+
+
+test {
+    useJUnitPlatform()
+}

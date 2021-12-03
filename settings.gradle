@@ -1,0 +1,3 @@
+rootProject.name = 'spring-security-angular'
+
+include 'modules:backend', 'modules:frontend'
