@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -19,11 +18,11 @@ import java.io.IOException;
 
 @Component
 public class SessionFilter extends OncePerRequestFilter {
-    private final InMemorySessionRegistry sessionRegistry;
+    private final SessionRegistry sessionRegistry;
     private final CurrentUserService currentUserService;
 
     @Autowired
-    public SessionFilter(final InMemorySessionRegistry sessionRegistry,
+    public SessionFilter(final SessionRegistry sessionRegistry,
                          final CurrentUserService currentUserService) {
         this.sessionRegistry = sessionRegistry;
         this.currentUserService = currentUserService;
