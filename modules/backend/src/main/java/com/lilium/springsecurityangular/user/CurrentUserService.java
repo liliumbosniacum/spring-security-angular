@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CurrentUserService implements UserDetailsService {
+public class CurrentUserService implements UserDetailsService { // Suggestion for naming this something like CurrentUserDetailsService or alike, helps w/consept
     private final UserInMemoryRepository inMemoryRepository;
     private final UserRepository repository;
 
@@ -19,6 +19,7 @@ public class CurrentUserService implements UserDetailsService {
 
     @Override
     public CurrentUser loadUserByUsername(String username) throws UsernameNotFoundException {
+        //Referring to my previous suggestion in entity, could be better to use Optional when searching user by username.
         final UserEntity user = repository.findByUsername(username);
         if (user != null) {
             final CurrentUser currentUser = new CurrentUser();
